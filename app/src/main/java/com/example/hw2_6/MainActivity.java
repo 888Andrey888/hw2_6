@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             btEnter.setEnabled(true);
         }
 
+        // сделал проверку только для поля email потому что только это логично)))
         etEmail.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -45,17 +46,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.length() <= 0){
+                if (editable.length() <= 0) {
                     btEnter.setEnabled(false);
                 }
             }
         });
 
         btEnter.setOnClickListener(view -> {
-            if(etEmail.getText().toString().equals("Admin") && etPass.getText().toString().equals("Admin")){
+            if (etEmail.getText().toString().equals("Admin") && etPass.getText().toString().equals("Admin")) {
                 clLogin.setVisibility(View.GONE);
                 Toast.makeText(this, "Вы успешно зарегистрировались", Toast.LENGTH_LONG).show();
-            }else {
+            } else {
                 Toast.makeText(this, "Неправильный логин и пароль", Toast.LENGTH_LONG).show();
             }
         });
