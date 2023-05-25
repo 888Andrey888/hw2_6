@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         EditText etEmail = findViewById(R.id.et_email);
         EditText etPass = findViewById(R.id.et_pass);
         ConstraintLayout clLogin = findViewById(R.id.cl_login);
+        TextView tvWelcomeMine = findViewById(R.id.tv_welcome_mine);
 
         if (etEmail.getText().length() == 0 && etPass.getText().length() == 0) {
             btEnter.setEnabled(false);
@@ -54,8 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
         btEnter.setOnClickListener(view -> {
             if (etEmail.getText().toString().equals("Admin") && etPass.getText().toString().equals("Admin")) {
-                clLogin.setVisibility(View.GONE);
                 Toast.makeText(this, "Вы успешно зарегистрировались", Toast.LENGTH_LONG).show();
+                clLogin.setVisibility(View.GONE);
+                tvWelcomeMine.setVisibility(View.VISIBLE);
             } else {
                 Toast.makeText(this, "Неправильный логин и пароль", Toast.LENGTH_LONG).show();
             }
